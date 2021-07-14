@@ -19,7 +19,9 @@ steps:
   displayName: 'Run a multi-line script'
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'build'
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
